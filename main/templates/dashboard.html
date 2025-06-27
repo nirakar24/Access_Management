@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/main/style.css">
+    <style>
+        button[disabled] { background: #ccc; color: #888; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Dashboard</h2>
+    <p>Welcome, <b>{{ username }}</b>!</p>
+    <p>Your group(s): <b>{{ groups|join:', ' }}</b></p>
+    <a href="/logout/">Logout</a>
+    <hr>
+    <form action="/view1/" method="get" style="display:inline;">
+        <button type="submit" {% if not 'Group 1' in groups %}disabled{% endif %}>View 1</button>
+    </form>
+    <form action="/view2/" method="get" style="display:inline;">
+        <button type="submit" {% if not 'Group 2' in groups %}disabled{% endif %}>View 2</button>
+    </form>
+    <form action="/view3/" method="get" style="display:inline;">
+        <button type="submit" {% if not 'Group 3' in groups %}disabled{% endif %}>View 3</button>
+    </form>
+</div>
+</body>
+</html> 
